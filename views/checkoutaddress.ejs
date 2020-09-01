@@ -60,8 +60,8 @@
             
                 <% useraddress.forEach( useraddress => { %>
                     <div class="addr-checkout-items"> 
-                        <input type="radio" value="<%= useraddress._id %>" name="selectedaddr"> <span><%= user.name %></span>
-                        <h4>Contact No: <%= user.mobileno %></h4>
+                        <input type="radio" value="<%= useraddress._id %>" name="selectedaddr"> <span><%= useraddress.name %></span>
+                        <h4>Contact No: <%= useraddress.mobileno %></h4>
                         <p><%= useraddress.details %></p>
                         <p><%= useraddress.pincode %> <%= useraddress.city %> </p>
                     </div>
