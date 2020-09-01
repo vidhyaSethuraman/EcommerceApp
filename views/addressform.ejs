@@ -1,0 +1,73 @@
+<html>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <style>
+        
+        .container-address
+        {
+            margin: 3% auto;
+            height: 35rem;
+            width: 30rem;
+            padding:1rem 0rem;
+            box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);
+            color: #af2174;
+        }
+        .container-address h1
+        {
+            font-size:1.4rem;
+        }
+        .container-address input[type=text]
+        {
+            display: block;
+            padding:0.5rem 0.5rem;
+            width: 20rem;
+            margin:0.5rem 0rem;
+            border: 1.5px solid  #af2174;
+            color:#af2174;
+        }
+
+        .container-address button
+        {
+            padding:0.7rem 0.5rem;
+            width: 21rem;
+            display: block;
+            background: linear-gradient(90deg,#e946a5,#8d0f58);
+            border:none;
+            outline:none;
+            color:white;
+        }
+
+        .container-address button:hover 
+        {
+            background: linear-gradient(45deg,#e946a5, gold);
+        }
+
+        .container-address span
+        {
+            font-size: 1rem;
+        }
+    </style>
+    <body>
+
+        <form action="/checkout/address" method="POST" class="container-address">
+            <center>
+                <h1>Contact Details</h1>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="mobileno" placeholder="Mobile No" required>
+                <h1>Address</h1>
+                <input type="text" name="pincode" placeholder="pincode" required>
+                <input type="text" name="details" placeholder="Address (House No, Building, Street, Area)*" required>
+                <input type="text" name="landmark" placeholder="Landmark">
+                <input type="text" name="city" placeholder="City / district" required>
+                <input type="text" name="state" placeholder="State" required>
+                <br>
+                <span>Save address</span>
+                <input type="radio" name="addrHome"> Home
+                <input type="radio" name="addrOffice"> Office
+                <br><br>
+                <input type="checkbox" name="defaulta"> <span>Make this my Default Address</span>  <br><br>
+                <button type="submit">Proceed</button> 
+            </center>
+        </form>
+       
+    </body>
+</html>

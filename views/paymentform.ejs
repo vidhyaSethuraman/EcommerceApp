@@ -1,0 +1,123 @@
+<html>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <style>
+       
+        #newcard
+        {
+            display: none;
+        }
+        #savedcard
+        {
+            display: block;
+        }
+
+        .payment-box
+        {
+            margin: 1% auto;
+            width:30rem;
+            box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);
+            margin-bottom: 2rem;
+            padding:1rem 1rem;
+            color: #af2174;
+        }
+        .payment-box input[type=text]{
+            display:block;
+            padding: 0.5rem 1.5rem;
+            margin:0.7rem 1.3rem;
+            outline:none;
+            border: 1.5px solid  #af2174;
+            color:#af2174;
+        }
+        .payment-box span{
+            font-size:18px;
+            font-weight: bold;
+        }
+        .payment-box button
+        {
+            padding: 0.6rem 0rem;
+            margin:0.5rem 0rem;
+            width: 13rem;
+            background: linear-gradient(90deg,#e946a5,#8d0f58);
+            border:none;
+            outline:none;
+            color:white;
+        }
+
+        .payment-box button:hover
+        {
+            background: linear-gradient(45deg,#e946a5, gold);
+        }
+
+        .payment-card
+        {
+            display: flex;
+        }
+
+        .payment-header
+        {
+            display: flex;
+            width: 500px;
+            background-color: #af2174;
+            justify-content: space-between;
+            color:white;
+            font-weight: bolder;
+            font-size: 20px;
+            padding:0.5rem 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+    <body>
+        <center><h1 class="payment-header">Choose Payment Mode</h1></center>
+        <form action="/checkout/payment/gateway" method="POST" class="payment-box">
+            
+            <% if(usercard.length!=0) { %>
+            <div id="savedcard">
+                <span>Saved Cards</span>
+                <br>
+                <% usercard.forEach( card => { %>
+                <input type="radio" name="payment_method" value="card"><span><%= card.bank_name %> ( xxxx xxxx <%= card.card_number_last %> )</span>
+                <input type="text" placeholder="Enter CVV">
+                <% }) %>
+            </div>
+            <% } %>
+                <br><br>
+            
+            <input type="radio" onclick="newcarddetails()" name="payment_method" value="card"> <span>Credit Cart / Debit Card</span>
+            
+            <div id="newcard" class="payment-card">
+                <div>
+                    <input type="text" name="bank_name" placeholder="Bank Name">
+                    <input type="text" placeholder="Name on Card" name="card_holder_name" >
+                    <input type="text" placeholder="Card Number" name="card_number" >
+                    <input type="radio" name="savecard"> <span>Save card</span> <br>
+                </div>
+                <div>
+                    <span>Expiry Date</span> <input type="text" placeholder="Month" name="card_expiry_month" >
+                    <input type="text" placeholder="Year" name="card_expiry_year" >
+                </div>
+            </div>
+                
+            <br>
+            <input type="radio" name="payment_method" value="netbanking"> <span>Net Banking </span><br>
+            <input type="radio" name="payment_method" value="upi"> <span>UPI Apps</span><br>
+            <input type="radio" name="payment_method" value="POD">  <span>Pay On delivary (Cash / Card /UPI )</span><br>
+            <br><br>
+            <center><button type="submit">Place Order</button></center>
+        </form>
+    </body>
+    
+    <script>
+        
+        function newcarddetails()
+        {
+            document.getElementById('newcard').style.display="flex";
+            document.getElementById('newcard').style.justifyContent ="space-between";
+        }
+
+        function viewcards()
+        {
+            document.getElementById('savedcard').style.display="block";
+        }
+    </script>
+    
+</html>

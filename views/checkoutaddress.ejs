@@ -1,0 +1,82 @@
+<html>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <style>
+       
+        .addr-checkout-items
+        {
+            box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);
+            margin-bottom: 1rem;
+            width:500px;
+            padding: 1rem 1rem;
+            text-align: left;
+        }
+
+        .addr-checkout-items span
+        {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .addr-checkout-items h4
+        {
+            font-weight: normal;
+            line-height: 2px;
+        }
+        .addr-checkout-header
+        {
+            display: flex;
+            width: 500px;
+            background-color: #af2174;
+            justify-content: space-between;
+            color:white;
+            font-weight: bolder;
+            font-size: 20px;
+            padding:0.5rem 1rem;
+        }
+
+        .buy-btn
+        {
+            width: 530px;
+            background-color: #af2174;
+            color:white;
+            font-weight: bolder;
+            font-size: 20px;
+            padding:0.5rem 1rem;
+            border:none;
+            outline:none;
+        }
+
+        .buy-btn:hover{
+            background-color: #d13891;
+        }
+
+    </style>
+    <body>
+        <center>
+        <div class="addr-checkout-header">Select Address</div>
+        <br>
+
+        <form action="/checkout/payment" method="POST">
+            
+                <% useraddress.forEach( useraddress => { %>
+                    <div class="addr-checkout-items"> 
+                        <input type="radio" value="<%= useraddress._id %>" name="selectedaddr"> <span><%= user.name %></span>
+                        <h4>Contact No: <%= user.mobileno %></h4>
+                        <p><%= useraddress.details %></p>
+                        <p><%= useraddress.pincode %> <%= useraddress.city %> </p>
+                    </div>
+                <% }); %>
+            
+           
+
+            <button type="submit" class="buy-btn">Proceed to payment</button> 
+
+        </form>
+
+        <form action="/checkout/address/form" method="GET" >
+            <button class="buy-btn">Add new Address</button>
+        </form>
+        </center>
+  
+    </body>
+</html>

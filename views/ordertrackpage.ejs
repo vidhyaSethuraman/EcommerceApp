@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <style>
+           
+            .container-order-box
+            {
+                margin:3% auto;
+                width:47rem;
+                box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);
+            }
+            .order-details
+            {
+                display: flex;
+                background-color:rgb(245, 223, 226);
+                justify-content: space-between;
+                text-align: center;
+                background-color: #af2174;
+                color:white
+            }
+            .order-details h5
+            {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: bolder;
+                padding:0px 10px
+            }
+
+            .order-details h4
+            {
+                line-height: 1px;
+            }
+
+            .order-product-details
+            {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            
+
+            .order-product-details h6, .order-product-details h5
+            {
+                line-height: 2px;
+            }
+
+            .order-product-details button
+            {
+                padding:0.3rem 0.7rem;
+                border:none;
+                outline:none;
+                background: linear-gradient(90deg,#e946a5,#8d0f58);
+                color:white;
+
+            }
+
+            .order-box-btn
+            {
+                width:10rem;
+                margin: 0.5rem 1.5rem;
+                display: block;
+                border:none;
+                outline:none;
+                background: linear-gradient(90deg,#e946a5,#8d0f58);
+                color:white;
+            }
+
+            .order-page-heading
+            {
+                margin-top: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: bolder;
+            }
+
+        </style>
+        <body>
+            
+           
+                <center><h2 class="order-page-heading">Your Orders</h2></center>
+                <div class="container-order-box">
+                    <div class="order-details">
+                        <div>
+                            <h5>Order placed</h5>
+                            <h4> <%= order_date %> </h4>
+                        </div>
+                        <div>
+                            <h5>Total</h5>
+                            <h4>&#8377;<%= orderdetails.total_amt %></h4>
+                        </div>
+                        <div>
+                            <h5>Status</h5>
+                            <h4><%= orderdetails.shipping_status_time %> : <%= orderdetails.shipping_status %></h4>
+                        </div>
+                        <div>
+                            <h5>Order #</h5>
+                            <h4><%= orderdetails._id %></h4>
+                        </div>
+                    </div>
+                    <div class="order-product-details">
+                        <div>
+                            <ol>
+                            <% prodet.forEach( product => { %>
+                                <li> 
+                                    <h4><%= product.name %></h4>
+                                    <h5>Price:&#8377; <%= product.price %></h5>
+                                    <button>Buy Again</button>
+                                </li>
+                            <% }) %>
+                            </ol>
+                        </div>
+                        <div style="padding-top: 1rem;">
+                            <button class="order-box-btn">Cancel Order</button>
+                            <button class="order-box-btn">Review order</button>
+                        </div>
+                    </div>
+                </div>
+            
+
+        </body>
+    </head>
+</html>

@@ -1,0 +1,480 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <style>
+
+           *{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Slab', serif;
+            }
+
+            nav
+            {
+              display: flex; 
+              justify-content: center;
+              border-bottom: 1px solid goldenrod;
+              
+            }
+
+            nav div h6
+            {
+                color:goldenrod;
+                padding: 5px 0px;
+                text-decoration: goldenrod;
+            }
+
+            nav div 
+            {
+              margin: 1rem 1.5rem ; 
+            }
+
+            nav input[type=text] 
+            {
+              padding: 0.5rem 0.5rem;
+              padding-right: 20rem;
+              font-size: 1rem;
+              border: 1.5px solid #E4729F;
+              outline-color: #E4729F;
+              margin-top: 1.7rem;
+            }
+
+            
+            .searchButton
+            {
+              float: right;
+              padding: 0.65rem 10px;
+              margin-right: 1rem;
+              font-size: 1.2rem;
+              border: 1.5px solid #E4729F;
+              cursor: pointer;
+              outline:#E4729F;
+              margin-top: 1.7rem;
+            }
+
+            .searchButton:hover 
+            {
+              background: #ccc;
+            }
+
+            nav button
+            {
+                outline:none;
+                border:none;
+                background-color: white;
+            }
+
+            nav form button i, nav .profile
+            {
+                color:  #af2174;
+                font-size: 2.3rem;
+                margin-top: 1.5rem;
+            }
+
+            
+
+            
+          .dropdown {
+            position: relative;
+            display: inline-block;
+          }
+
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-top: -14px;
+            margin-left: -10px;
+          }
+
+          .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+          }
+
+          .dropdown-content a:hover {background-color: #ddd;}
+
+          .dropdown:hover .dropdown-content {display: block;}
+
+          .dropdown-content form button
+          {
+            background-color: transparent;
+            border:none;
+            outline:none;
+          }
+
+          .collectionHeading
+          {
+            margin-bottom: 2.5rem;
+            color:indigo;
+          }
+
+          .product-card
+          {
+              display: flex;flex-wrap: wrap;justify-content: space-around;margin:1rem 3rem;
+              text-align: center;
+          }
+
+          .product-card h5
+          {
+              letter-spacing: 2px;
+              text-transform: capitalize;
+              color:rebeccapurple;
+          }
+
+          .product-card h6
+          {
+              color:palevioletred;
+          }
+
+          .product-card p
+          {
+              color:goldenrod;
+          }
+
+          .product-card button
+          {
+              padding: 0.3rem 0.7rem;
+              border-radius: 30px;
+              outline:none;
+              border:none;
+              background: linear-gradient(90deg,#E4729F,#78104D);
+              
+              color:white
+          }
+
+          .product-card button:hover 
+          {
+            background: linear-gradient(45deg,#e946a5, gold);
+          }
+
+          .product-image
+          {
+              height: 26rem; width: 18rem;background-repeat: no-repeat;background-size: contain;
+          }
+          .product-details
+          {
+              margin-bottom: 2rem;
+              padding: 0.5rem 0rem; 
+          }
+
+          .product-item
+          {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);margin-bottom: 2rem;
+          }
+
+          .product-item form
+          {
+            display: inline;
+          }
+
+          .promises-box
+          {
+            display: flex;
+            justify-content: center;
+          }
+
+          .promises-item
+          {
+            padding:2rem 2rem;
+            margin:1rem 1rem;
+            width: 20rem;
+            box-shadow: 4px 4px 8px 4px rgba(112, 14, 96, 0.15);margin-bottom: 2rem;
+            color:mediumvioletred;
+           
+          }
+
+          .promises-item i
+          {
+            padding-bottom: 1rem;
+            font-size: 1.5rem;
+          }
+
+          footer{
+            display: flex;
+            justify-content:space-evenly;
+            padding:1rem 0rem;
+            padding-top: 2rem;
+            background-color:#E4729F;
+
+          }
+
+          .footer-items 
+          {
+
+          }
+
+          .footer-items h6
+          {
+            font-size: 1.2rem;
+          }
+
+          .footer-items ul
+          {
+            list-style-type: none;
+            
+          }
+
+          .footer-items li a
+          {
+            color:black;
+          }
+
+          .copyrights
+          {
+            background-color: #af2174;
+            padding: 1rem 0rem;
+            text-align: center;
+            color:white
+          }
+
+          .logo-heading
+          {
+            
+            text-align: center;
+            background-color:#E4729F;   
+            padding:0.5rem 0rem;
+          }
+
+          
+        </style>
+    </head>
+    <body>
+
+        <nav>
+            <div>
+                <img src="/public/logo.jpeg" alt="" height="100px" width="170px">
+            </div>
+            <div >
+                <input type="text" placeholder="Search.." name="search">
+                <button class="searchButton" type="submit"><i class="fa fa-search" style="color:goldenrod;"></i></button>
+            </div>
+            <div>   
+                <div class="dropdown">
+                  <i class='fas fa-user-alt profile' style="margin-top: 0.5rem;"></i>
+                <h6>Profile</h6>
+                  <div class="dropdown-content">
+                    <a href="#">Profile Info</a>
+                    <a href="#">
+                      <form action="/order/tracking" action="GET">
+                        <button type="submit">Orders</button>
+                      </form>
+                    </a>
+                    <% if(user) { %>
+                    <a href="">
+                      <form action="/logout" method="GET">
+                        <button type="submit">Log Out</button>
+                      </form>
+                    </a>
+                    <% } else { %>
+                      <a href="">
+                        <form action="/login" method="GET">
+                          <button type="submit">Log In</button>
+                        </form>
+                      </a>
+                    <% } %>
+                  </div>
+                </div> 
+            </div>
+
+            <div>
+              <form action="/wishlist" method="GET">
+                <button>
+                  <i class="fas fa-heart" style="font-size: 2.3rem;"></i>
+                  <h6>WishList</h6>
+                </button>
+              </form>
+                
+            </div>
+            <div> 
+                <form action="/cart" method="GET">
+                  <button type="submit">
+                    <i class="fa fa-shopping-cart" style="font-size: 2.3rem;"></i>
+                    <h6>Cart <%= noOfItems %> <span id="cartItemNumber"></span></h6>
+                  </button>
+                </form>
+            </div>
+        </nav>
+        
+          <br><br>
+
+          <center><h3 class="collectionHeading">Check Out Our New Summer Collection</h3></center>
+          <div class="product-card">
+              <% prodet.forEach( product => { %>
+                  <div class="product-item">
+                  <a>
+                      <div class="product-image" style="background-image: url('<%= product.image  %>');"></div></a>
+                      <div class="product-details"> 
+                          <h5><%= product.collectionName %></h5>
+                          <h6><%= product.name %></h6>
+                          <p>Price: &#8377;<%= product.price %></p>
+                          <form action="/addtocart<%= product.id %>" method="GET">
+                            <button id="cartButton" class="cart">Add to cart</button>
+                          </form>
+                          <form action="/addtowishlist<%= product.id %>" method="GET">
+                            <button id="wishListButton" class="wishlist">Add to Wishlist</button>
+                          </form>
+                          
+                      </div>
+                  </div>
+              <% }) %>
+
+          <br><br><br>
+          </div>
+          
+          <div class="promises-box">
+              <div class="promises-item">
+                  <center>
+                    <i class='fas fa-truck'></i>
+                      <h5>FREE SHIPPING</h5>
+                      <h6>On orders over 400</h6>
+                  </center>
+              </div>
+              <div class="promises-item">
+                <center>
+                    <i class="fa fa-money" ></i>
+                      <h5>MONEY BACK 100%</h5>
+                      <h6>30 Day money back guaranty.</h6>
+                  </center>
+              </div>
+              <div class="promises-item">
+                <center>
+                    <i class="fa fa-lock" ></i>
+                      <h5>PAYMENT SECURED</h5>
+                      <h6>Powerful Payment protection You Can Trust.</h6>
+                  </center>
+              </div>
+          </div>
+
+          <br><br>
+
+         
+          
+            <h3 class="logo-heading">Camilla Miller</h3>
+            <footer class="footer">
+                <div class="footer-items">
+                  <h6>Policy Information</h6>
+                  <ul>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Terms of Use</a></li>
+                    <li><a href="">Terms of Sale</a></li>
+                    <li><a href="">Report Abuse & Takedown Policy</a></li>
+                  </ul>
+                </div>
+                <div class="footer-items">
+                  <h6>Company</h6>
+                  <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Core Values</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Site Map</a></li>
+                  </ul>
+                </div>
+                <div class="footer-items">
+                  <h6>Need Help ?</h6>
+                  <ul>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Online Shopping</a></li>
+                  </ul>
+                </div>
+                <div class="footer-items">
+                  <h6>Our Services</h6>
+                  <ul>
+                    <li><a href="">Shopping and returns</a></li>
+                    <li><a href="">Secure Shopping</a></li>
+                    <li><a href="">International Shipping</a></li>
+                    <li><a href="">Affiliates</a></li>
+                  </ul>
+                </div>
+            </footer>
+
+            <div class="copyrights">Copyright © 2020, Camilla Miller Private Limited. All Rights Reserved</div>
+
+           
+           
+
+    </body>
+
+    <script>
+      /*async function addtocart(prodId)
+      {
+        console.log(prodId);
+        try
+        {
+          const path = '/addtocart' + prodId;
+          console.log(path);
+          const res = await fetch(path ,{method: 'GET'});
+          const data= await res.json();
+          console.log(data);
+         /* if(data.user=="no")
+          {
+              if(localStorage.getItem('cart')==null)
+              {
+                var cartitems =[prodId];
+                localStorage.setItem('cart',JSON.stringify(cartitems));
+                console.log(cartitems);
+              }
+              else
+              {
+                var lscart = JSON.parse(localStorage.getItem('cart'));
+                console.log("user has cart items");
+                console.log(lscart) ; 
+                lscart.push(prodId);  // Add to the array
+                localStorage.setItem('cart', JSON.stringify(lscart));
+                cartitemNos = lscart.length;
+              }
+          }
+          
+          //document.getElementById('cartItemNumber').innerHTML = cartitemNos;
+        }
+        catch(err)
+        {
+          console.log(err);
+        }
+      }*/
+
+      /*async function gotocart()
+      {
+        console.log("in function gotocart");
+        try
+        {
+          const cartItems = localStorage.getItem('cart');
+          if(cartItems==null)
+          {
+            const res = await fetch('/cart' , {method: 'POST',body: JSON.stringify({ cartItems: "no" }),
+            headers: {'Content-Type': 'application/json'}});
+          }
+          else
+          {
+            const res = await fetch('/cart' , {method: 'POST',body: JSON.stringify({cartItems: cartItems}),
+            headers: {'Content-Type': 'application/json'}});
+            const data = await res.json();
+            console.log(data);
+          }
+        }
+        catch(err)
+        {
+          console.log(err);
+        }
+          
+      }*/
+
+      
+    </script>
+
+</html>
+
+
+

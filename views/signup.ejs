@@ -1,0 +1,112 @@
+<html>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <style>
+   
+    .container
+      {
+        margin: 6% auto;
+        height: 30rem;
+        width:25rem;
+        box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);margin-bottom: 2rem;
+        text-align: center;
+        color: #af2174;
+      }
+      .container input
+      {
+        padding: 0.5rem 1.5rem;
+        margin:0.5rem 0rem;
+        outline:none;
+        border: 1.5px solid  #af2174;
+        color:#af2174;
+      }
+
+      .container button
+      {
+        padding: 0.6rem 0rem;
+        margin:0.5rem 0rem;
+        width: 13rem;
+        background: linear-gradient(90deg,#e946a5,#8d0f58);
+        border:none;
+        outline:none;
+        color:white;
+      }
+
+      .container button:hover
+      {
+        background: linear-gradient(45deg,#e946a5, gold);
+      }
+
+      .container h2
+      {
+        font-weight: bold;
+      }
+
+      .container form
+      {
+        padding-top:2rem;
+      }
+      
+  </style>
+    <body>
+
+        <div class="container">
+            <form action="/signup">
+              <h2>Sign up</h2>
+              
+              <input type="text" name="email"  placeholder="Email" required/>
+              <div class="email error"></div>
+              
+              <input type="password" name="password" placeholder="Password" required />
+              <div class="password error"></div>
+              <button>Sign up</button>
+            </form>
+
+            
+            <form action="/login" method="GET">
+              <h2>One of Us?</h2>
+              <button>Log In</button>
+            </form>
+
+        </div>
+  
+    </body>
+    
+<script>
+    const form = document.querySelector('form');
+    const emailError = document.querySelector('.email.error');
+    const passwordError = document.querySelector('.password.error');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // reset errors
+      emailError.textContent = '';
+      passwordError.textContent = '';
+      // get values
+      const email = form.email.value;
+      const password = form.password.value;
+      try {
+        const res = await fetch('/signup', { 
+          method: 'POST', 
+          body: JSON.stringify({ email, password }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        //console.log(data);
+        if (data.errors) {
+            console.log(data.errors.email);
+            console.log(data.errors.password);
+          emailError.textContent = data.errors.email;
+          passwordError.textContent = data.errors.password;
+        }
+        console.log("aboveee");
+        if (data.customer) {
+            //console.log("hi here");
+          location.assign('/');
+        }
+      }
+      catch (err) {
+        console.log(err);
+      }
+    });
+  </script>
+</html>
+

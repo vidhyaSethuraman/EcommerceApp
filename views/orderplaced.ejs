@@ -1,0 +1,40 @@
+<html>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <style>
+        
+        .order-placed
+        {
+            box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);
+            padding:1rem 1rem;
+           color: #af2174;
+           margin:6% auto;
+           width:500px;
+           text-align: center;
+        }
+        .order-placed button
+        {
+            box-shadow: 0 4px 8px 0 rgba(146, 6, 123, 0.2);
+            border:none;
+            outline:none;
+            padding:0.5rem 1rem;
+            color:#af2174;
+            background-color: transparent;
+        }
+        .order-placed button:hover
+        {
+            box-shadow: 0 4px 8px 0 rgba(243, 240, 48, 0.966);
+        }
+       
+    </style>
+    <body>
+        <div class="order-placed">
+            <h1>Payment Successfull</h1>
+            <h1>Order Placed</h1>
+            <h3>Expected Delivary Date : <%= delivary_date %></h3>
+            <p>Hope You Enjoyed the Shopping Expirience! :)</p>
+            <form action="/">
+                <button>Home Page</button>
+            </form>
+        </div> 
+    </body>
+</html>
