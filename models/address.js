@@ -8,6 +8,12 @@ const addressSchema = new mongoose.Schema(
             type:String,
             required:true
         },
+        name: {
+            type:String
+        },
+        mobileno: {
+            type: String
+        },
         pincode: {
             type: Number,
             minlength: 6,
