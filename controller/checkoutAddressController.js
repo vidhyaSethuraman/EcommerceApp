@@ -72,7 +72,6 @@ module.exports.checkout_address_conformation = async(req,res) => {
 
   try
   {
-    var user = await Customer.findById(userinfo._id);
     var useraddress =await  Address.find({customer_id: userinfo._id});
   }
   catch(err)
@@ -80,5 +79,5 @@ module.exports.checkout_address_conformation = async(req,res) => {
     console.log(err);
   }
 
-  res.render('checkoutaddress',{user,useraddress});
+  res.render('checkoutaddress',{useraddress});
 }
